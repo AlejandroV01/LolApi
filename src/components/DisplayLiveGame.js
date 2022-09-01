@@ -191,7 +191,7 @@ const DisplayLiveGame = ({ playerData }) => {
 
   const displayChampsInLiveGame = (arrayOfLiveGame) => {
     return arrayOfLiveGame.map((player) => (
-      <div className="individualLivePlayer">
+      <div className="individualLivePlayer" key={player.summonerId}>
         <img
           src={getProfileIcon(player.profileIconId)}
           alt=""
