@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const champIdToName = {};
   const [summonerName, setSummonerName] = useState("");
   const [playerData, setPlayerData] = useState({
     id: "",
@@ -14,7 +15,7 @@ function App() {
     summonerLevel: 0,
   });
   // const API_KEY = process.env.REACT_APP_API_KEY;
-  const API_KEY = "RGAPI-6cd6a71c-a13d-4b89-85fd-069d8f0ed9e0";
+  const API_KEY = "RGAPI-b73d73d8-1eed-44be-a877-21cc39c0cdf2";
   const getGeneralData = async () => {
     await fetch(
       `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${API_KEY}`
@@ -37,6 +38,7 @@ function App() {
 
         fetchMastery(data.id);
         fetchActiveGame(data.id);
+        fetchRankedData(data.id);
       })
       .catch((err) => alert("Invalid Summoner Name"));
     console.log(playerData);
@@ -49,7 +51,19 @@ function App() {
   //     return `http://ddragon.leagueoflegends.com/cdn/12.16.1/img/profileicon/${playerData.profileIconId}.png`;
   //   }
   // };
-
+  const fetchRankedData = (data) => {
+    fetch(
+      `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${data}?api_key=${API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        let newList = data;
+        setPlayerData((previous) => ({
+          ...previous,
+          rankedInfo: newList,
+        }));
+      });
+  };
   const fetchMastery = (data) => {
     fetch(
       `https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${data}?api_key=${API_KEY}`
@@ -83,35 +97,39 @@ function App() {
         console.log("no active game");
       });
   };
-
-  const getChampIconUrl = (champId) => {
-    let currentChamp = "";
+  console.log(playerData);
+  function getChampIconUrl(championId) {
     fetch(
       "http://ddragon.leagueoflegends.com/cdn/12.16.1/data/en_US/champion.json"
     )
       .then((response) => response.json())
       .then((data) => {
         let fullArray = data.data;
-        for (const i in fullArray) {
-          if (fullArray[i].key === champId.toString()) {
-            let champName = fullArray[i].id;
-            console.log(champName);
-            return `https://ddragon.leagueoflegends.com/cdn/12.16.1/img/champion/${champName}.png`;
-          }
-        }
+        console.log("hi");
+        let findByKey = (matchKey) =>
+          Object.entries(fullArray.data).find(
+            ([key, value]) => value.key === matchKey
+          );
+        console.log("hi");
+        console.log(findByKey("202"));
       });
-    console.log(currentChamp);
-  };
+  }
+
+  // OMG LETS SEE IF THE CHANGES HAPPENED IN MY DESKTOP
   // const secondBarDisplay = () => {
   //   if (playerData.id) {
   //   }
   // };
-  console.log(playerData);
+
   const renderChampImage = (champData) => {
     return (
       <img
         // src={getChampName(champData.championId)}
-        src={getChampIconUrl(champData.championId)}
+        src={
+          "https://ddragon.leagueoflegends.com/cdn/12.16.1/img/champion/" +
+          getChampIconUrl(champData.championId) +
+          ".png"
+        }
         alt=""
         className="champImage"
       />
