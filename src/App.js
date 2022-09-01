@@ -334,64 +334,67 @@ function App() {
             <span className="active active-true">In-Game</span>
           )}
         </div>
-        <div className="bottom">
-          <div className="topLeft">
-            <div className="masteryTitle">
-              <h1>RANKED STATS</h1>
+        <div className="allBottoms">
+          <div className="bottomOne">
+            <div className="topLeft firstRowDivs">
+              <div className="masteryTitle">
+                <h1>RANKED STATS</h1>
+              </div>
+              <div className="rankedRow">
+                <div className="rankedIndi">
+                  {playerData.rankedInfo ? (
+                    <>
+                      <h2>SOLO</h2>
+                      <DisplaySoloRank playerData={playerData} />
+                    </>
+                  ) : (
+                    <div></div>
+                  )}
+                </div>
+                <div className="rankedIndi">
+                  {playerData.rankedInfo ? (
+                    <>
+                      <h2>FLEX</h2>
+                      <DisplayFlexRank playerData={playerData} />
+                    </>
+                  ) : (
+                    <div></div>
+                  )}
+                </div>
+              </div>
             </div>
-            <div className="rankedRow">
-              <div className="rankedIndi">
-                {playerData.rankedInfo ? (
-                  <>
-                    <h2>SOLO</h2>
-                    <DisplaySoloRank playerData={playerData} />
-                  </>
+            <div className="topLeft firstRowDivs">
+              <div className="masteryTitle">
+                <h1>MASTERY LIST</h1>
+              </div>
+              <div className="masteryData">{displayMastery()}</div>
+            </div>
+          </div>
+          <div className="bottomTwo">
+            <div className="topLeft rankedDiv">
+              <div className="masteryTitle">
+                <h1>BLUE SIDE</h1>
+              </div>
+              <div className="bottomLiveGame">
+                {!playerData.activeGameData ? (
+                  <h1 className="noLiveGame">Please enter a summoner name</h1>
                 ) : (
-                  <div></div>
+                  <DisplayLiveGame playerData={playerData} />
                 )}
               </div>
-              <div className="rankedIndi">
-                {playerData.rankedInfo ? (
-                  <>
-                    <h2>FLEX</h2>
-                    <DisplayFlexRank playerData={playerData} />
-                  </>
+            </div>
+
+            <div className="topLeft rankedDiv">
+              <div className="masteryTitle">
+                <h1>RED SIDE</h1>
+              </div>
+              <div className="bottomLiveGame">
+                {!playerData.activeGameData ? (
+                  <h1 className="noLiveGame">Please enter a summoner name</h1>
                 ) : (
-                  <div></div>
+                  <DisplayLiveGameRedSide playerData={playerData} />
                 )}
               </div>
-            </div>
-          </div>
-          <div className="topLeft">
-            <div className="masteryTitle">
-              <h1>MASTERY LIST</h1>
-            </div>
-            <div className="masteryData">{displayMastery()}</div>
-          </div>
-
-          <div className="topLeft">
-            <div className="masteryTitle">
-              <h1>BLUE SIDE</h1>
-            </div>
-            <div className="bottomLiveGame">
-              {!playerData.activeGameData ? (
-                <h1>Please enter a summoner name</h1>
-              ) : (
-                <DisplayLiveGame playerData={playerData} />
-              )}
-            </div>
-          </div>
-
-          <div className="topLeft">
-            <div className="masteryTitle">
-              <h1>RED SIDE</h1>
-            </div>
-            <div className="bottomLiveGame">
-              {!playerData.activeGameData ? (
-                <h1>Please enter a summoner name</h1>
-              ) : (
-                <DisplayLiveGameRedSide playerData={playerData} />
-              )}
             </div>
           </div>
         </div>
