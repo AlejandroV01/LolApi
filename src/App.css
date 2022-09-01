@@ -11,7 +11,8 @@ h2 {
 }
 html {
   background-color: #151136;
-  overflow: hidden;
+  height: 200vh;
+  /* overflow: hidden; */
 }
 
 .container {
@@ -34,6 +35,7 @@ html {
   color: rgb(221, 221, 221);
   padding: 0.75rem 10rem;
   border-bottom: #33bd8c 2px solid;
+  height: 9vh;
 }
 
 .search {
@@ -61,7 +63,8 @@ html {
 
 .profileDisplay {
   color: white;
-  padding: 3rem 10rem;
+  padding: 0rem 10rem;
+  min-height: 23vh;
   background-color: #233845;
   display: flex;
   justify-content: space-between;
@@ -80,12 +83,123 @@ html {
   color: #21ffb1;
 }
 .bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   background-color: #142337;
   width: 100%;
-  height: 100%;
-  padding: 0rem 10rem;
+  height: 68vh;
+  padding: 2rem 10rem;
+  grid-gap: 3rem;
 }
 
 .champImage {
   width: 100px;
+}
+
+.playerIcon {
+  border-radius: 50%;
+  width: 15vh;
+}
+.playerIconDiv {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 23vh;
+  padding: 1rem 0;
+}
+.playerIconDiv p {
+  border: #33bd8c 3px solid;
+  padding: 0.2rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.topLeft {
+  background-color: #2b3e57;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.226);
+}
+
+.masteryTitle {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 0rem 1rem;
+  line-height: 3rem;
+  background-color: #242f3f;
+  font-size: 1rem;
+  color: whitesmoke;
+}
+
+.masteryTitle h1 {
+  font-weight: 300;
+}
+
+.soloRank {
+  width: 8rem;
+}
+
+.rankedRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.rankedIndi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rankedIndi h2 {
+  color: whitesmoke;
+}
+
+.rankedIndi p {
+  color: white;
+  font-weight: 500;
+}
+
+.liveGameIcon {
+  width: 5rem;
+}
+
+.champsInLiveGame {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 2rem;
+}
+.individualLivePlayer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summonerSpells {
+  display: flex;
+  gap: 10px;
+}
+
+.individualLivePlayer h2 {
+  font-size: 1rem;
+}
+
+.redOverlay {
+  background-color: rgba(255, 0, 0, 0.144);
+  text-align: center;
+  color: whitesmoke;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0px 0px 10px 0px;
+}
+
+.blueOverlay {
+  background-color: rgba(4, 0, 255, 0.144);
+  text-align: center;
+  color: whitesmoke;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
