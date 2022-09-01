@@ -375,7 +375,7 @@ function App() {
             </div>
             <div className="bottomLiveGame">
               {!playerData.activeGameData ? (
-                <h1>Please enter a summoner</h1>
+                <h1>Please enter a summoner name</h1>
               ) : (
                 <DisplayLiveGame playerData={playerData} />
               )}
@@ -388,7 +388,7 @@ function App() {
             </div>
             <div className="bottomLiveGame">
               {!playerData.activeGameData ? (
-                <h1>Please enter a summoner</h1>
+                <h1>Please enter a summoner name</h1>
               ) : (
                 <DisplayLiveGameRedSide playerData={playerData} />
               )}

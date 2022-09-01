@@ -11,8 +11,7 @@ h2 {
 }
 html {
   background-color: #151136;
-  height: 200vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .container {
@@ -129,7 +128,6 @@ html {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 0rem 1rem;
-  line-height: 3rem;
   background-color: #242f3f;
   font-size: 1rem;
   color: whitesmoke;
@@ -202,4 +200,15 @@ html {
   color: whitesmoke;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.bottomLiveGame {
+  text-align: center;
+  height: 100%;
+}
+
+.bottomLiveGame h1 {
+  color: whitesmoke;
+  margin-top: 50px;
+  font-weight: 600;
 }
