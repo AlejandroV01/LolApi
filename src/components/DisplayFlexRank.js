@@ -1,4 +1,5 @@
 import React from "react";
+import "./DisplayRanks.css";
 import BRONZE from "./Emblem_Bronze.png";
 import CHALLENGER from "./Emblem_Challenger.png";
 import DIAMOND from "./Emblem_Diamond.png";
@@ -117,7 +118,12 @@ const DisplayFlexRank = ({ playerData }) => {
           </>
         );
       default:
-        return <img src={EMPTY} alt="NO RANK" className="soloRank" />;
+        return (
+          <>
+            <img src={EMPTY} alt="NO RANK" className="soloRank" />
+            <p>UNRANKED</p>
+          </>
+        );
     }
   };
 

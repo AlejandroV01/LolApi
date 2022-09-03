@@ -1,4 +1,5 @@
 import React from "react";
+import "./DisplayLiveGame.css";
 const champIdToName = {
   266: "Aatrox",
   103: "Ahri",

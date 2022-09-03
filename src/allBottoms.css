@@ -1,0 +1,58 @@
+.allBottoms {
+  padding: 2rem 2rem;
+  background-color: #142337;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr;
+  grid-gap: 1rem;
+}
+
+.aBottomContainer {
+  background-color: #2b3e57;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.226);
+}
+
+.masteryData {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottomDivTitle {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 0rem 1rem;
+  background-color: #242f3f;
+  font-size: 1rem;
+  color: whitesmoke;
+}
+
+.bottomDivTitle h1 {
+  font-weight: 300;
+}
+
+.bottomLiveGame {
+  text-align: center;
+}
+
+.noLiveGame {
+  color: whitesmoke;
+  font-weight: 600;
+}
+
+.champImageMastery {
+  width: 50%;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  align-items: center;
+}
+
+.champ {
+  height: 100%;
+  color: whitesmoke;
+}

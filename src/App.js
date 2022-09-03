@@ -1,11 +1,14 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import "./allBottoms.css";
 import "./App.css";
 import DisplayFlexRank from "./components/DisplayFlexRank";
 import DisplayLiveGame from "./components/DisplayLiveGame";
 import DisplayLiveGameRedSide from "./components/DisplayLiveGameRedSide";
 import DisplaySoloRank from "./components/DisplaySoloRank";
+import "./nav.css";
+import "./profileDisplay.css";
 function App() {
   const champIdToName = {
     266: "Aatrox",
@@ -180,7 +183,7 @@ function App() {
     summonerLevel: 0,
   });
   // const API_KEY = process.env.REACT_APP_API_KEY;
-  const API_KEY = "RGAPI-b1fb43a7-eda2-4040-af4b-584911ca27a1";
+  const API_KEY = "RGAPI-c600d0ad-402c-4ee5-bc5e-8a28df934c8a";
   const getGeneralData = async () => {
     await fetch(
       `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${API_KEY}`
@@ -275,7 +278,7 @@ function App() {
               ".png"
             }
             alt=""
-            className="champImage"
+            className="champImageMastery"
           />
           <p>{"Mastery " + champData.championLevel}</p>
           <p>{champData.championPoints.toLocaleString()}</p>
@@ -335,66 +338,61 @@ function App() {
           )}
         </div>
         <div className="allBottoms">
-          <div className="bottomOne">
-            <div className="topLeft firstRowDivs">
-              <div className="masteryTitle">
-                <h1>RANKED STATS</h1>
-              </div>
-              <div className="rankedRow">
-                <div className="rankedIndi">
-                  {playerData.rankedInfo ? (
-                    <>
-                      <h2>SOLO</h2>
-                      <DisplaySoloRank playerData={playerData} />
-                    </>
-                  ) : (
-                    <div></div>
-                  )}
-                </div>
-                <div className="rankedIndi">
-                  {playerData.rankedInfo ? (
-                    <>
-                      <h2>FLEX</h2>
-                      <DisplayFlexRank playerData={playerData} />
-                    </>
-                  ) : (
-                    <div></div>
-                  )}
-                </div>
-              </div>
+          <div className="aBottomContainer firstRowDivs">
+            <div className="bottomDivTitle">
+              <h1>RANKED STATS</h1>
             </div>
-            <div className="topLeft firstRowDivs">
-              <div className="masteryTitle">
-                <h1>MASTERY LIST</h1>
+            <div className="rankedRow">
+              <div className="rankedIndi">
+                {playerData.rankedInfo ? (
+                  <>
+                    <h2>SOLO</h2>
+                    <DisplaySoloRank playerData={playerData} />
+                  </>
+                ) : (
+                  <div></div>
+                )}
               </div>
-              <div className="masteryData">{displayMastery()}</div>
+              <div className="rankedIndi">
+                {playerData.rankedInfo ? (
+                  <>
+                    <h2>FLEX</h2>
+                    <DisplayFlexRank playerData={playerData} />
+                  </>
+                ) : (
+                  <div></div>
+                )}
+              </div>
             </div>
           </div>
-          <div className="bottomTwo">
-            <div className="topLeft rankedDiv">
-              <div className="masteryTitle">
-                <h1>BLUE SIDE</h1>
-              </div>
-              <div className="bottomLiveGame">
-                {!playerData.activeGameData ? (
-                  <h1 className="noLiveGame">Please enter a summoner name</h1>
-                ) : (
-                  <DisplayLiveGame playerData={playerData} />
-                )}
-              </div>
+          <div className="aBottomContainer firstRowDivs">
+            <div className="bottomDivTitle">
+              <h1>MASTERY LIST</h1>
             </div>
-
-            <div className="topLeft rankedDiv">
-              <div className="masteryTitle">
-                <h1>RED SIDE</h1>
-              </div>
-              <div className="bottomLiveGame">
-                {!playerData.activeGameData ? (
-                  <h1 className="noLiveGame">Please enter a summoner name</h1>
-                ) : (
-                  <DisplayLiveGameRedSide playerData={playerData} />
-                )}
-              </div>
+            <div className="masteryData">{displayMastery()}</div>
+          </div>
+          <div className="aBottomContainer secondRowDivs">
+            <div className="bottomDivTitle">
+              <h1>BLUE SIDE</h1>
+            </div>
+            <div className="bottomLiveGame">
+              {!playerData.activeGameData ? (
+                <h1 className="noLiveGame">Please enter a summoner name</h1>
+              ) : (
+                <DisplayLiveGame playerData={playerData} />
+              )}
+            </div>
+          </div>
+          <div className="aBottomContainer secondRowDivs">
+            <div className="bottomDivTitle">
+              <h1>RED SIDE</h1>
+            </div>
+            <div className="bottomLiveGame">
+              {!playerData.activeGameData ? (
+                <h1 className="noLiveGame">Please enter a summoner name</h1>
+              ) : (
+                <DisplayLiveGameRedSide playerData={playerData} />
+              )}
             </div>
           </div>
         </div>

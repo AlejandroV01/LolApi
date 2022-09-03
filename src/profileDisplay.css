@@ -1,0 +1,41 @@
+.profileDisplay {
+  color: white;
+  padding: 0.5rem 10rem;
+  background-color: #233845;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.active {
+  outline: 2px rgb(109, 109, 109) solid;
+  color: rgb(109, 109, 109);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.active-true {
+  outline: 3px #21ffb1 solid;
+  color: #21ffb1;
+}
+
+.playerIconDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10%;
+  gap: 0.3rem;
+}
+
+.playerIcon {
+  position: relative;
+  border-radius: 50%;
+  width: 100%;
+}
+
+.playerIconDiv p {
+  border: #33bd8c 3px solid;
+  padding: 0.2rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
